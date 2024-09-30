@@ -6,6 +6,9 @@ from datetime import datetime
 import hashlib
 import random
 import csv
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import numpy as np
 
 current_profile_path = None
 
@@ -215,6 +218,40 @@ def copy_sigil():
     root.clipboard_append(sigil)
     messagebox.showinfo("Copied", "Sigil copied to clipboard!")
 
+def create_radar_chart(data):
+    traits = list(data['traits'].keys())
+    values = list(data['traits'].values())
+    
+    angles = np.linspace(0, 2*np.pi, len(traits), endpoint=False)
+    values = np.concatenate((values, [values[0]]))
+    angles = np.concatenate((angles, [angles[0]]))
+    
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(projection='polar'))
+    ax.plot(angles, values)
+    ax.fill(angles, values, alpha=0.25)
+    ax.set_thetagrids(angles[:-1] * 180/np.pi, traits)
+    ax.set_ylim(0, 100)
+    ax.set_title("Personality Traits Radar Chart")
+    
+    return fig
+
+def display_radar_chart(data):
+    fig = create_radar_chart(data)
+    
+    chart_window = tk.Toplevel(root)
+    chart_window.title("Personality Traits Radar Chart")
+    
+    canvas = FigureCanvasTkAgg(fig, master=chart_window)
+    canvas_widget = canvas.get_tk_widget()
+    canvas_widget.pack()
+
+def search_profiles(event=None):
+    search_term = search_entry.get().lower()
+    file_listbox.delete(0, tk.END)
+    for file in os.listdir(current_dir):
+        if file.endswith("_profile.json") and search_term in file.lower():
+            file_listbox.insert(tk.END, file)
+
 root = tk.Tk()
 root.title("Personality Profile Generator")
 
@@ -300,16 +337,29 @@ delete_button.grid(row=0, column=3, padx=5)
 export_button = ttk.Button(button_frame, text="Export to CSV", command=export_to_csv)
 export_button.grid(row=0, column=4, padx=5)
 
+search_frame = ttk.Frame(right_frame)
+search_frame.pack(pady=5, fill=tk.X)
 
-result_label = ttk.Label(left_frame, text="")
-result_label.grid(row=len(traits)//2+7, column=0, columnspan=6, pady=5)
+search_entry = ttk.Entry(search_frame)
+search_entry.pack(side=tk.LEFT, expand=True, fill=tk.X)
+search_entry.bind("<KeyRelease>", search_profiles)
 
+search_button = ttk.Button(search_frame, text="Search", command=search_profiles)
+search_button.pack(side=tk.RIGHT)
 
 ttk.Label(right_frame, text="Saved Profiles:").pack(pady=10)
 
 file_listbox = tk.Listbox(right_frame, width=50)
 file_listbox.pack(expand=True, fill='both')
 file_listbox.bind('<Double-1>', load_profile)
+
+update_file_list()
+
+
+radar_chart_button = ttk.Button(button_frame, text="Show Radar Chart", command=lambda: display_radar_chart(json.loads(open(current_profile_path).read()) if current_profile_path else None))
+radar_chart_button.grid(row=0, column=5, padx=5)
+result_label = ttk.Label(left_frame, text="")
+result_label.grid(row=len(traits)//2+7, column=0, columnspan=6, pady=5)
 
 update_file_list()
 

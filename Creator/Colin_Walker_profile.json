@@ -1,0 +1,32 @@
+{
+  "first_name": "Colin",
+  "last_name": "Walker",
+  "gender": "male",
+  "profession": "Software Developer",
+  "traits": {
+    "Openness": 76.34408602150538,
+    "Conscientiousness": 19.892473118279568,
+    "Extraversion": 76.88172043010752,
+    "Agreeableness": 27.956989247311824,
+    "Neuroticism": 13.440860215053762,
+    "Self-Discipline": 27.956989247311824,
+    "Assertiveness": 27.956989247311824,
+    "Empathy": 50.0,
+    "Creativity": 76.88172043010752,
+    "Curiosity": 69.89247311827957,
+    "Resilience": 74.73118279569893,
+    "Adaptability": 60.752688172043015,
+    "Emotional Intelligence": 50.0,
+    "Leadership": 31.72043010752688,
+    "Risk-Taking": 85.48387096774194,
+    "Perfectionism": 18.817204301075268,
+    "Optimism": 73.11827956989248,
+    "Patience": 12.365591397849462,
+    "Honesty": 76.88172043010752,
+    "Ambition": 50.0
+  },
+  "additional_notes": "",
+  "timestamp": "2024-09-30T13:51:53.225489",
+  "personality_type": "RE",
+  "sigil": ")**@(!>\"+\u00e7\n)!+>%=/+%(\n@*\"*(%)!=\u00e7\n@\u00e7%>\\%\"%\\/\n+!+@(/%@&\u00e7"
+}

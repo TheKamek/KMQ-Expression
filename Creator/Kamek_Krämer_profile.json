@@ -1,0 +1,32 @@
+{
+  "first_name": "Kamek",
+  "last_name": "Kr\u00e4mer",
+  "gender": "male",
+  "profession": "Software Developer",
+  "traits": {
+    "Openness": 100.0,
+    "Conscientiousness": 0.0,
+    "Extraversion": 90.32258064516128,
+    "Agreeableness": 30.0,
+    "Neuroticism": 80.10752688172043,
+    "Self-Discipline": 75.26881720430107,
+    "Assertiveness": 100.0,
+    "Empathy": 31.182795698924732,
+    "Creativity": 43.01075268817204,
+    "Curiosity": 100.0,
+    "Resilience": 84.94623655913979,
+    "Adaptability": 100.0,
+    "Emotional Intelligence": 83.87096774193549,
+    "Leadership": 100.0,
+    "Risk-Taking": 52.1505376344086,
+    "Perfectionism": 12.365591397849462,
+    "Optimism": 0.0,
+    "Patience": 86.55913978494624,
+    "Honesty": 23.0,
+    "Ambition": 76.34408602150538
+  },
+  "additional_notes": "",
+  "timestamp": "2024-09-30T13:48:14.298621",
+  "personality_type": "OA",
+  "sigil": "/(>!+@&//=\n@)!\u00e7\\)>\u00e7*%\n*=*\\<=\u00e7\u00e7@&\n(&+=/<*\\@\\\n+=!%%=/\"=("
+}
